@@ -10,12 +10,25 @@
 
 """
 
+import csv
+from dataclasses import field
+from encodings import utf_8
+
+employee = [ 
+    {'name': "Дима", 'age': "27", 'job':"МО"},
+    {'name': "Коля", 'age': "37", 'job':"ЖКХ"},
+    {'name': "Юра", 'age': "22", 'job':"Суд"},
+    {'name': "Света", 'age': "18", 'job':"Киоск"},
+    ]
+
 def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+
+    with open('employee.csv', 'w', encoding="utf_8", newline='') as csv_file:
+        fields = ['name','age','job']
+        writer = csv.DictWriter(csv_file, fields, delimiter=';')
+        writer.writeheader()
+        for line in employee:
+            writer.writerow(line)
 
 if __name__ == "__main__":
     main()
