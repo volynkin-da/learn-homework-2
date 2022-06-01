@@ -15,10 +15,10 @@ def main():
     with open('referat.txt', 'r', encoding='utf-8') as referat:
         referat_text = referat.read()
 
-        print(f'Длинна строки: {len(referat_text)}')
+        print('Длинна строки: {}'.format(len(referat_text)))
 
-        print(f'Количество слов в тексте: {len(referat_text.split(" "))}')
-        
+        print('Количество слов в тексте: {}'.format(len(referat_text.split(" "))))
+
         referat_replace_text = referat_text.replace(".","!")
     
     with open('referat2.txt', 'w', encoding='utf-8') as referat2:
